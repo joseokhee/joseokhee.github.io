@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seokhee Jo</title>
+<meta name="description" content="Seokhee Jo, AI researcher working on representation learning and medical image analysis.">
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(assets/fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:500;src:url(assets/fonts/inter-latin-500-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(assets/fonts/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:700;src:url(assets/fonts/inter-latin-700-normal.woff2)}
+@font-face{font-family:'Source Serif 4';font-weight:400;src:url(assets/fonts/source-serif-4-latin-400-normal.woff2)}
+@font-face{font-family:'Source Serif 4';font-weight:400;font-style:italic;src:url(assets/fonts/source-serif-4-latin-400-italic.woff2)}
+@font-face{font-family:'Source Serif 4';font-weight:600;src:url(assets/fonts/source-serif-4-latin-600-normal.woff2)}
+:root{--bg:#fbfbf9;--card:#ffffff;--text:#1b1c1b;--body:#454744;--muted:#8b8d88;--line:#e7e7e2;--accent:#2f8f7a;--accent-soft:#e6f2ee;--soft:#f2f2ee}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121312;--card:#1a1c1a;--text:#efefec;--body:#c6c7c2;--muted:#8d8f89;--line:#2b2d2a;--accent:#5cc2a8;--accent-soft:#1d2e29;--soft:#1f211f}}
+:root[data-theme="dark"]{--bg:#121312;--card:#1a1c1a;--text:#efefec;--body:#c6c7c2;--muted:#8d8f89;--line:#2b2d2a;--accent:#5cc2a8;--accent-soft:#1d2e29;--soft:#1f211f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--body);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .in{max-width:980px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+nav .brand{font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;color:var(--text)}
+nav .menu{display:flex;gap:18px;font-size:14px;font-weight:500}nav .menu a{color:var(--muted)}nav .menu a:hover{color:var(--accent);text-decoration:none}
+main{max-width:980px;margin:0 auto;padding:0 20px 96px}
+h1,h2,h3{font-family:'Source Serif 4',serif;color:var(--text);font-weight:600}
+h2{font-size:28px;margin:80px 0 22px}
+h3{font-size:20px;margin:0 0 6px;line-height:1.35}
+.hero{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:center;padding:64px 0 8px}
+.photo{width:200px;aspect-ratio:4/5;border-radius:10px;background:var(--soft);border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:13px;object-fit:cover}
+.hero h1{font-size:44px;margin:0;line-height:1.1}
+.hero .role{color:var(--muted);margin:6px 0 16px}
+.hero p{margin:0 0 12px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;padding:6px 14px;border-radius:99px;border:1px solid var(--line);color:var(--text);background:var(--card)}
+.btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.btn.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:12.5px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:2px 10px;border-radius:99px}
+.news{list-style:none;padding:0;margin:0;border-left:2px solid var(--line)}
+.news li{position:relative;padding:0 0 14px 22px}
+.news li::before{content:"";position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.news .d{display:inline-block;width:86px;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:22px}
+.proj .head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.proj .where{color:var(--muted);font-size:14px}
+.proj p{margin:8px 0 0}
+.gallery{display:grid;gap:12px;margin-top:18px}
+.g1{grid-template-columns:1fr}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:2fr 1fr 1fr}
+figure{margin:0}
+figure img{width:100%;height:100%;max-height:340px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--line);display:block}
+figure.dark img{background:#000}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.step{background:var(--soft);border-radius:10px;padding:12px 14px;font-size:14px}
+.step b{display:block;color:var(--accent);font-size:12px;letter-spacing:.06em;margin-bottom:2px}
+.pub{display:grid;grid-template-columns:240px 1fr;gap:24px;margin-bottom:34px}
+.pub img{width:100%;border-radius:8px;border:1px solid var(--line);background:#fff}
+.pub .au{margin-top:2px}.pub .au b{color:var(--text)}
+.pub .ve{color:var(--muted);font-size:14px;font-style:italic;font-family:'Source Serif 4',serif}
+.tag{font-family:Inter;font-style:normal;font-size:11.5px;font-weight:700;color:#fff;background:#c2553f;padding:1px 8px;border-radius:99px;margin-left:6px}
+.links{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.links a,.links button{font:500 12.5px Inter;padding:3px 11px;border-radius:6px;border:1px solid var(--line);color:var(--body);background:var(--card);cursor:pointer}
+.links a:hover,.links button:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+pre.bib{display:none;margin:10px 0 0;padding:12px 14px;background:var(--soft);border-radius:8px;font-size:12px;line-height:1.5;overflow-x:auto;white-space:pre-wrap}
+pre.bib.open{display:block}
+.tl .row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.tl .when{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.tl b{color:var(--text)}
+.tl .sub{color:var(--muted);font-size:14px}
+footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between}
+@media (max-width:720px){
+ .hero{grid-template-columns:1fr;gap:20px;padding-top:36px}.photo{width:140px}
+ .hero h1{font-size:36px}
+ .pub{grid-template-columns:1fr}.g2,.g3,.steps{grid-template-columns:1fr}
+ .tl .row{grid-template-columns:1fr;gap:2px}
+ nav .menu{display:none}.proj{padding:18px}
+}
+</style>
+</head>
+<body>
+<nav><div class="in"><span class="brand">Seokhee Jo</span>
+<div class="menu"><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="cv.pdf">CV</a></div></div></nav>
+<main>
+
+<section class="hero">
+<img class="photo" src="assets/profile.jpg" alt="Seokhee Jo" style="border-style:solid">
+<div>
+<h1>Seokhee Jo</h1>
+<div class="role">AI Researcher at JLK Inc. · Seoul, Korea</div>
+<p>I build lesion detection models for chest X-ray and mammography at JLK, and some of them are now running in health screening centers across Korea.</p>
+<p>Before that I did my M.S. at Sogang University with Prof. Jungmin So, working on few-shot classification. I'm looking for a Ph.D. position to work on how vision models learn good representations, especially for medical images.</p>
+<div class="chips"><span class="chip">Representation learning</span><span class="chip">Self-supervised learning</span><span class="chip">Medical imaging</span><span class="chip">Few-shot learning</span></div>
+<div class="btns">
+<a class="btn main" href="cv.pdf">CV (PDF)</a>
+<a class="btn" href="mailto:joseokhee44@gmail.com">Email</a>
+<a class="btn" href="https://scholar.google.com/citations?user=J0WtJk0AAAAJ">Google Scholar</a>
+<a class="btn" href="https://github.com/joseokhee">GitHub</a>
+</div>
+</div>
+</section>
+
+<section id="news">
+<h2>News</h2>
+<ul class="news">
+<li><span class="d">2026</span>Applying to Ph.D. programs.</li>
+<li><span class="d">2025</span>Presented our few-shot classification paper as an oral talk at ACM SAC 2025.</li>
+<li><span class="d">Feb 2024</span>Received my M.S. from Sogang University.</li>
+<li><span class="d">Jan 2024</span>Joined JLK Inc. as an AI researcher.</li>
+</ul>
+</section>
+
+<section id="research">
+<h2>Research</h2>
+
+<article class="proj">
+<div class="head"><h3>Chest X-ray lesion detection with a foundation model</h3><span class="where">JLK · 2024 – now</span></div>
+<p>Semi-supervised methods didn't help on our in-house data, so I looked at the representation instead. Switching the backbone to a chest X-ray foundation model helped, but lesion and normal features were still mixed. A patch-level k-NN check showed lesion regions behave differently, and I designed a module to push that signal further.</p>
+<div class="steps">
+<div class="step"><b>TRIED</b>Semi-supervised SOTA → no gain</div>
+<div class="step"><b>CHANGED</b>CXR foundation model as backbone</div>
+<div class="step"><b>ADDED</b>Module that separates lesion features</div>
+</div>
+<div class="gallery g1"><figure><img src="assets/cxr_foundation.jpg" alt="Chest X-ray predictions: original, baseline, foundation model, proposed"><figcaption>Original · baseline (false positives) · foundation model · ours (correct region only)</figcaption></figure></div>
+</article>
+
+<article class="proj">
+<div class="head"><h3>Malignant calcification detection in mammography</h3><span class="where">JLK · hospital deployment</span></div>
+<p>The hospital wanted malignant calcifications, not every calcification. Filtering the existing model's output wasn't enough to remove benign ones, so I retrained it around malignant cases and combined predictions across the four views.</p>
+<div class="gallery g1"><figure class="dark"><img src="assets/mmg.jpg" alt="Four-view mammography detection output"><figcaption>Four-view output with the calcification region highlighted</figcaption></figure></div>
+</article>
+
+<article class="proj">
+<div class="head"><h3>Chest X-ray screening for health check-ups</h3><span class="where">JLK · deployed nationwide</span></div>
+<p>Detection for pulmonary fibrosis, cardiomegaly, arterial calcification and scoliosis. We built it with feedback from radiologists, went through clinical evaluation, and the models are now used across screening centers in Korea. After launch I retrained the fibrosis model with cases from the field.</p>
+<div class="gallery g3">
+<figure class="dark"><img src="assets/screening.jpg" alt="Screening product with detection result"><figcaption>Product view</figcaption></figure>
+<figure><img src="assets/cardio.jpg" alt="Cardiothoracic ratio from heart and lung masks"><figcaption>Cardiomegaly: heart / chest width</figcaption></figure>
+<figure class="dark"><img src="assets/scoliosis.jpg" alt="Spine landmarks for Cobb angle"><figcaption>Scoliosis: landmarks → Cobb angle</figcaption></figure>
+</div>
+</article>
+
+<article class="proj">
+<div class="head"><h3>Few-shot classification with importance-based CutOut</h3><span class="where">Sogang University · SAC 2025</span></div>
+<p>Fine-tuning on a handful of images kept washing out what the pretrained model knew. We hid the regions the model relied on most during training, and added a contrastive loss so features from the same class stay close.</p>
+<div class="gallery g2">
+<figure><img src="assets/cico.jpg" alt="CICO training pipeline"><figcaption>Training pipeline</figcaption></figure>
+<figure><img src="assets/cico_ico.jpg" alt="Original image and importance-based cutout"><figcaption>Original → important region masked</figcaption></figure>
+</div>
+</article>
+
+<article class="proj">
+<div class="head"><h3>ContextAug: less reliance on background</h3><span class="where">Sogang University · team project</span></div>
+<p>Models often recognize objects from what's around them. We counted which classes appear together, pasted rarely co-occurring objects into new scenes, and the model's attention moved back onto the object.</p>
+<div class="gallery g2">
+<figure><img src="assets/contextaug.jpg" alt="Images with rarely co-occurring objects pasted in"><figcaption>Generated training images</figcaption></figure>
+<figure><img src="assets/contextaug_cam.jpg" alt="Class activation maps before and after"><figcaption>CAM before and after</figcaption></figure>
+</div>
+</article>
+</section>
+
+<section id="publications">
+<h2>Publications</h2>
+<div class="pub">
+<img src="assets/cico.jpg" alt="CICO overview">
+<div>
+<h3>Supervised Contrastive Learning with Importance-based CutOut for Few-shot Image Classification</h3>
+<div class="au"><b>Seokhee Jo</b>, Jungmin So</div>
+<div class="ve">ACM/SIGAPP Symposium on Applied Computing (SAC), 2025<span class="tag">Oral</span></div>
+<div class="links">
+<a href="https://doi.org/10.1145/3672608.3707739">Paper</a>
+<button onclick="this.parentNode.nextElementSibling.classList.toggle('open')">BibTeX</button>
+</div>
+<pre class="bib">@inproceedings{jo2025cico,
+  title     = {Supervised Contrastive Learning with Importance-based CutOut for Few-shot Image Classification},
+  author    = {Jo, Seokhee and So, Jungmin},
+  booktitle = {Proceedings of the ACM/SIGAPP Symposium on Applied Computing (SAC)},
+  year      = {2025},
+  doi       = {10.1145/3672608.3707739}
+}</pre>
+</div>
+</div>
+<div class="pub">
+<img src="assets/multicyclegan.jpg" alt="Multi-attribute translation compared with CycleGAN and StarGAN">
+<div>
+<h3>Multi Cycle Consistent Adversarial Networks for Multi Attribute Image to Image Translation</h3>
+<div class="au"><b>Seokhee Jo</b>, Kyu Cheol Cho</div>
+<div class="ve">Journal of the Korea Society of Computer and Information, 25(9), 63–69, 2020</div>
+<div class="links">
+<a href="https://doi.org/10.9708/jksci.2020.25.09.063">Paper</a>
+<button onclick="this.parentNode.nextElementSibling.classList.toggle('open')">BibTeX</button>
+</div>
+<pre class="bib">@article{jo2020multicycle,
+  title   = {Multi Cycle Consistent Adversarial Networks for Multi Attribute Image to Image Translation},
+  author  = {Jo, Seokhee and Cho, Kyu Cheol},
+  journal = {Journal of the Korea Society of Computer and Information},
+  volume  = {25},
+  number  = {9},
+  pages   = {63--69},
+  year    = {2020},
+  doi     = {10.9708/jksci.2020.25.09.063}
+}</pre>
+</div>
+</div>
+</section>
+
+<section id="experience" class="tl">
+<h2>Experience &amp; Education</h2>
+<div class="row"><div class="when">2024 – now</div><div><b>AI Researcher</b>, JLK Inc.<div class="sub">Chest X-ray and mammography lesion detection</div></div></div>
+<div class="row"><div class="when">2021 – 2024</div><div><b>M.S. in Computer Science and Engineering</b>, Sogang University<div class="sub">Intelligent Connected Systems Lab · Advisor: Prof. Jungmin So</div></div></div>
+<div class="row"><div class="when">2021 – 2024</div><div><b>Programming Instructor</b>, Beyond Coding<div class="sub">Taught C, Python, Java and web basics to students</div></div></div>
+<div class="row"><div class="when">2017 – 2021</div><div><b>B.S. in Computer Information Engineering</b>, Inha Technical College</div></div>
+</section>
+
+<footer><span>© 2026 Seokhee Jo</span><span>Updated Oct 2026</span></footer>
+</main>
+</body>
+</html>
